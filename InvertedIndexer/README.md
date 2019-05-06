@@ -12,6 +12,6 @@
 
 ## 输入
 
-> <stop-words file path\>` 停词表
+> <stop-words file path\> // 停词表
 
-> <files input path\>` 含有多个文本文件的文档目录, 例如该目录下有doc1、doc2、doc3…… 
+> <files input path\> // 含有多个文本文件的文档目录, 例如该目录下有doc1、doc2、doc3…… 
