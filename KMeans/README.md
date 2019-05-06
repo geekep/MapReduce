@@ -1,4 +1,4 @@
-#Chapter 10.1 KMeans算法
+KMeans算法
 ##输入文件
 格式如下:<br/>
 1,2,3,4,5<br/>
