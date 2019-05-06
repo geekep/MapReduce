@@ -1,4 +1,4 @@
-#  Chapter8.6 PageRank说明
+#  PageRank说明
 
 ##目录结构
 	data - 测试数据样例, 包含样例文档wiki_0.txt	
