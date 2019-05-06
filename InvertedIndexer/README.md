@@ -1,4 +1,4 @@
-#  Chapter8.5 InvertedIndexer 说明
+InvertedIndexer 说明
 
 ##使用方法
 
