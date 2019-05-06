@@ -1,16 +1,16 @@
-InvertedIndexer 说明
+# InvertedIndexer 说明
 
-##使用方法
+## 使用方法
 
 本程序共有两个实现，分别是简单版本的SimpleInvertedIndex和InvertedIndexer，执行命令如下：
 
-对于SimpleInvertedIndex版本
+* 对于SimpleInvertedIndex版本
 `$ bin/hadoop jar SimpleInvertedIndex.jar <files input path\>  <file output path\>`
 
-对于InvertedIndexer版本
+* 对于InvertedIndexer版本
 `$ bin/hadoop jar InvertedIndexer.jar <stop-words file path\> <files input path\>  <file output path\>` 
 
-##输入
+## 输入
 
 `<stop-words file path\>` 停词表
 
