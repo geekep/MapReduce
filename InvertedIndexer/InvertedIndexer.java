@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.TreeSet;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.filecache.DistributedCache;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -82,7 +83,7 @@ public class InvertedIndexer {
     public void setup(Context context) throws IOException, InterruptedException {
       stopwords = new TreeSet<String>();
       Configuration conf = context.getConfiguration();
-      localFiles = Job.getInstance(conf).getLocalCacheFiles(); // 获得停词表
+      localFiles = DistributedCache.getLocalCacheFiles(conf); // 获得停词表
       for (int i = 0; i < localFiles.length; i++) {
         String line;
         BufferedReader br =
@@ -93,7 +94,6 @@ public class InvertedIndexer {
             stopwords.add(itr.nextToken());
           }
         }
-        br.close();
       }
     }
 
@@ -158,7 +158,7 @@ public class InvertedIndexer {
         sum += val.get();
       }
       word2.set("<" + temp + "," + sum + ">");
-      if (!CurrentItem.equals(word1) && !CurrentItem.equals(new Text(" "))) {
+      if (!CurrentItem.equals(word1) && !CurrentItem.equals(" ")) {
         StringBuilder out = new StringBuilder();
         long count = 0;
         for (String p : postingList) {
@@ -201,9 +201,9 @@ public class InvertedIndexer {
 
   public static void main(String[] args) throws Exception {
       Configuration conf = new Configuration();
-      Job job =Job.getInstance(conf, "inverted index");
-      // 设置停词列表文档作为当前作业的缓存文件
-      job.addCacheFile(new URI(args[0]));
+      DistributedCache.addCacheFile(new URI(
+        "hdfs://master01:54310/user/2014st08/stop-words.txt"), conf);// 设置停词列表文档作为当前作业的缓存文件
+    Job job = new Job(conf, "inverted index");
       job.setJarByClass(InvertedIndexer.class);
       job.setInputFormatClass(FileNameInputFormat.class);
       job.setMapperClass(InvertedIndexMapper.class);
@@ -214,8 +214,8 @@ public class InvertedIndexer {
       job.setMapOutputValueClass(IntWritable.class);
       job.setOutputKeyClass(Text.class);
       job.setOutputValueClass(Text.class);
-      FileInputFormat.addInputPath(job, new Path(args[1]));
-      FileOutputFormat.setOutputPath(job, new Path(args[2]));
+      FileInputFormat.addInputPath(job, new Path(args[0]));
+      FileOutputFormat.setOutputPath(job, new Path(args[1]));
       System.exit(job.waitForCompletion(true) ? 0 : 1);
   }
 }
