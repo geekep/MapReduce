@@ -19,5 +19,5 @@
 * 运行
 > hadoop jar FreqItemSet.jar FreqItemSetMain <dfs_path> <input> <k> <spt_dg> <output>
 * 示例
-> hadoop jar FreqItemSet.jar FreqItemSetMain /user/data/freqItemSet/ data 2 2 out
+> hadoop jar FreqItemSet.jar FreqItemSetMain /Hadoop/Input data 2 2 FreqItemSetOutput
 
