@@ -36,7 +36,7 @@ col id: 投影的列号
 打包后运行:<br>
 > hadoop jar Difference.jar <input path\> <output path\> <relationname\>    
 
-其中relationname表示被减的关系文件的名称,例如可以运行:
+其中relation name表示被减的关系文件的名称,例如可以运行:
 > hadoop jar Difference.jar /input/ /output/ R1.txt
 
 ### NaturalJoin
