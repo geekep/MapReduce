@@ -53,16 +53,6 @@ public class SingleFileNameReader extends RecordReader<Text, BytesWritable>{
 		return value;
 	}
 
-	/*@Override
-	public void initialize(InputSplit arg0, TaskAttemptContext arg1)
-			throws IOException, InterruptedException {
-		fileSplit = (FileSplit)arg0;
-		Configuration job = arg1.getConfiguration();
-		Path file = fileSplit.getPath();
-		FileSystem fs = file.getFileSystem(job);
-		fis = fs.open(file);
-	}*/
-
 	@Override
 	public boolean nextKeyValue() throws IOException, InterruptedException {
 		if(key==null)
@@ -89,9 +79,9 @@ public class SingleFileNameReader extends RecordReader<Text, BytesWritable>{
 				IOUtils.closeStream(fis);
 			}
 			processed = true;
-			return true;//return true±íÊ¾Õâ´Îinputformat»¹Ã»ÓĞ½áÊø£¬»áÓĞÏÂÒ»¶Ôkeyvalue²úÉú
+			return true;//return trueè¡¨ç¤ºè¿™æ¬¡inputformatè¿˜æ²¡æœ‰ç»“æŸï¼Œä¼šæœ‰ä¸‹ä¸€å¯¹keyvalueäº§ç”Ÿ
 		}
-		return false;//return false±íÊ¾Õâ´Îinputformat½áÊøÁË
+		return false;//return falseè¡¨ç¤ºè¿™æ¬¡inputformatç»“æŸäº†
 	}
 
 	@Override
