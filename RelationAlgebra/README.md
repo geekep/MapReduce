@@ -42,7 +42,7 @@ col id: 投影的列号
 ### NaturalJoin
 自然连接以`RelationA`和`RelationB`作为输入关系<br/>
 打包后运行：
-> hadoop jar NaturalJoin.jar <input path\> <output path\> <join col id\> <relation name>
+> hadoop jar NaturalJoin.jar <input path\> <output path\> <join col id\> <relation name\>
 
 例如有两个关系的输入文件Ra.txt 和 Rb.txt。分别为关系A和关系B,现在要在列号0上进行自然连接,那么join col id就为0，relation name为Ra.txt或者Rb.txt
   
