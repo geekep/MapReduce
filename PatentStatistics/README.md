@@ -6,7 +6,8 @@
 * PatentCitation.java 构建专利引用关系列表
 ## 运行说明
 专利文献下一共有四个算法，四个算法需要分别打包成四个jar包后再运行
-其中CitationBy, CitationCount, PatentCitation的输入文件为http://www.nber.org/patents/.这里不再赘述其文件格式。CitationCountDistribution的输入文件为CitationCount的输出文件。
+其中CitationBy, CitationCount, PatentCitation的输入文件为http://www.nber.org/patents/.
+这里不再赘述其文件格式。CitationCountDistribution的输入文件为CitationCount的输出文件。
 ### 运行
 #### CitationCount 
 打包后运行
